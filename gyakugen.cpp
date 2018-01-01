@@ -23,13 +23,46 @@ ll extgcd(ll x, ll y, ll &u, ll &v){
 	}
 	return d;
 }
- 
-void chrm(ll &a, ll &m, ll b, ll n){
+
+int128 extgcd128(int128 x, int128 y, int128 &u, int128 &v){
+	int128 d = x;
+	if(y != 0){
+		d = extgcd128(y, x%y, v, u);
+		v -= (x/y)*u;
+	} else {
+		u = 1;
+		v = 0;
+	}
+	return d;
+}
+
+void chrm_coprime(ll &a, ll &m, ll b, ll n){
 	ll u, v;
 	extgcd(m, n, u, v);
 	a = a*n*v+b*m*u;
 	m = m*n;
 	a %= m;
+	if(a<0) a += m;
+}
+
+void chrm128(int128 &a, int128 &m, int128 b, int128 n){
+	a = a%m+m; b = b%n+n;
+	int128 a2 = a, m2 = m;
+	int128 u, v;
+	int128 g = extgcd128(m, n, u, v);
+	if(a%g!=b%g) cerr<<"NG"<<endl;
+	u *= (b-a)/g; v *= (b-a)/g;
+	a = m*u+a;
+	m *= n/g;
+	a %= m;
+	if(a<0) a += m;
+	return;
+}
+
+void chrm(ll &a, ll &m, ll b, ll n){
+	int128 a2 = a, m2 = m, b2 = b, n2 = n;
+	chrm128(a2, m2, b2, n2);
+	a = a2; m = m2; b = b2; n = n2;
 }
  
 ll lambda(ll m){
