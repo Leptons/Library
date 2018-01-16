@@ -17,6 +17,8 @@ bool go(vector<vector<int> > &g, int u, vector<int> &mt, vector<bool> &vs){
 	}
 	return false;
 }
+
+// g (subset of K_{n,n}) is adjacency matrix (g[left vertex][right vertex])
 int bm(vector<vector<int> > &g){
 	int n = g.size();
 	vector<int> mt(n, -1);
