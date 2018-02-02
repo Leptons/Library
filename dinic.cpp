@@ -1,9 +1,3 @@
-/* verified problems
- * --------------------------------------------------
- * SRM 634 Div1 Medium SegmentDrawing (2018/02/02)
- * --------------------------------------------------
- */
-
 #define V 1100
 struct edge{ll to, cap, rev;};
 vector<edge> G[V];
