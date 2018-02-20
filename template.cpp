@@ -1,3 +1,7 @@
+//#pragma GCC optimize ("O3")
+//#pragma GCC target ("tune=native")
+//#pragma GCC target ("avx")
+//#include <bits/stdc++.h>
 #include <algorithm>
 #include <climits>
 #include <cmath>
@@ -51,6 +55,7 @@ const ll mod = 1e9+7;
 #define UNIQUE(x) (x).erase(unique(all(x)),(x).end())
 #define DEBUG(x) cerr<<"line ("<<__LINE__<<")  "<<#x<<": "<<x<<endl;
 template<class T> ostream &operator<<(ostream &os, const vector<T> &v){int n=v.size();rep(i,n)os<<v[i]<<(i==n-1?"":" ");return os;}
+#define INIT std::ios::sync_with_stdio(false);std::cin.tie(0);
 
 int main(){
 	

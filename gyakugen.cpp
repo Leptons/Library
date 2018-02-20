@@ -8,7 +8,7 @@ ll comb_nk(ll n, ll k){
 	return comb(n-k, k);
 }
  
-ll pow_mod(ll a, ll r, ll m){
+ll pow_mod(ll a, ll r, ll m = mod){
 	ll x = 1;
 	while(r){
 		if(r&1) (x*=a)%=m;
