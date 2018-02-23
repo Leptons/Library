@@ -79,7 +79,7 @@ ll tot(ll m){
 		if(!(m%i)){
 			res *= i-1;
 			m /= i;
-			while(!m%i){
+			while(!(m%i)){
 				m /= i;
 				res *= i;
 			}
